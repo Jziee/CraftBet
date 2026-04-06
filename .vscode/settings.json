@@ -1,0 +1,4 @@
+{
+  "tailwindCSS.experimental.configFile": "client/src/index.css",
+  "css.validate": false
+}
