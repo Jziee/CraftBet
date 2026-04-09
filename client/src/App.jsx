@@ -13,6 +13,7 @@ import Towers from './games/Towers'
 import HiLo from './games/HiLo'
 import Limbo from './games/Limbo'
 import Coinflip from './games/Coinflip'
+import Casino from './games/Casino'
 
 function App() {
   const [isChatOpen, setIsChatOpen] = useState(false)
@@ -47,6 +48,7 @@ function App() {
             <Route path="/hilo" element={<HiLo />} />
             <Route path="/limbo" element={<Limbo />} />
             <Route path="/coinflip" element={<Coinflip />} />
+            <Route path="/casino" element={<Casino />} />
           </Routes>
         </main>
 

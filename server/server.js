@@ -41,8 +41,10 @@ import minesRoutes from './routes/mines.js';
 import towersRoutes from './routes/towers.js';
 import hiloRoutes from './routes/hilo.js';
 import limboRoutes from './routes/limbo.js';
-import coinflipPVPRoutes from './routes/coinflippvp.js';
-import coinflipSoloRoutes from './routes/coinflipsolo.js';
+import coinflipPVPRoutes from './routes/coinflipPVP.js';
+import coinflipSoloRoutes from './routes/coinflipSolo.js';
+import casinoRoutes from './routes/casino.js';
+
 
 app.use('/api/auth', authRoutes);
 app.use('/api/user', userRoutes);
@@ -55,6 +57,8 @@ app.use('/api/hilo', hiloRoutes);
 app.use('/api/limbo', limboRoutes);
 app.use('/api/coinflip/pvp', coinflipPVPRoutes);
 app.use('/api/coinflip/solo', coinflipSoloRoutes);
+app.use('/api/casino', casinoRoutes);
+
 
 // 404 handler
 app.use((req, res) => {
