@@ -8,10 +8,13 @@ const router = express.Router();
 router.post('/register', async (req, res) => {
   try {
     const { username, email, password } = req.body;
-    
-    const existingUser = await User.findOne({ $or: [{ username }, { email }] });
+
+    const existingUser = await User.findOne({
+      $or: [{ username }, { email }]
+    });
+
     if (existingUser) {
-      return res.status(400).json({ message: 'Username or email already exists' });
+      return res.status(400).json({ message: 'Username or email exists' });
     }
 
     const user = new User({ username, email, password });
@@ -33,6 +36,7 @@ router.post('/register', async (req, res) => {
         isAdmin: user.isAdmin
       }
     });
+
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -42,13 +46,14 @@ router.post('/register', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     const { username, password } = req.body;
-    
+
     const user = await User.findOne({ username });
     if (!user) {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
 
-    const isMatch = await user.comparePassword(password);
+    const isMatch = password === user.password;
+
     if (!isMatch) {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
@@ -69,6 +74,7 @@ router.post('/login', async (req, res) => {
         isAdmin: user.isAdmin
       }
     });
+
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
