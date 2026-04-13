@@ -41,8 +41,8 @@ import minesRoutes from './routes/mines.js';
 import towersRoutes from './routes/towers.js';
 import hiloRoutes from './routes/hilo.js';
 import limboRoutes from './routes/limbo.js';
-import coinflipPVPRoutes from './routes/coinflipPVP.js';
-import coinflipSoloRoutes from './routes/coinflipSolo.js';
+import coinflipPVPRoutes from './routes/coinflippvp.js';
+import coinflipSoloRoutes from './routes/coinflipsolo.js';
 import casinoRoutes from './routes/casino.js';
 
 
