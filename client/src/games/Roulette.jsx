@@ -13,7 +13,7 @@ const Roulette = () => {
   const [error, setError] = useState('')
   const [history, setHistory] = useState([])
 
-  const API_URL = 'http://localhost:5002'
+  const API_URL = 'https://craftbet.onrender.com'
 
   // Roulette numbers: 0 is green, rest alternate red/black
   const wheelNumbers = [

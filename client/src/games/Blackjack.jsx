@@ -2,7 +2,7 @@ import { useState, useCallback } from 'react';
 import { useAuth } from '../context/AuthContext';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5002';
+const API_URL = 'https://craftbet.onrender.com';
 
 const Blackjack = () => {
   const { user, updateBalance } = useAuth();

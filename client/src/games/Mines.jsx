@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '../context/AuthContext';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5002';
+const API_URL = 'https://craftbet.onrender.com';
 
 // ── FIX 3: Mirror backend multiplier — no 1.01 clamp ─────────────────────────
 const previewMultiplier = (totalTiles, mineCount, tilesRevealed) => {

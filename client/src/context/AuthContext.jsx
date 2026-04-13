@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }) => {
 
   const fetchUser = async (token) => {
     try {
-      const response = await axios.get('http://localhost:5002/api/user/me', {
+      const response = await axios.get('https://craftbet.onrender.com/api/user/me', {
         headers: { Authorization: `Bearer ${token}` }
       })
       setUser(response.data)
@@ -29,28 +29,39 @@ export const AuthProvider = ({ children }) => {
     }
   }
 
-  const login = async (username, password) => {
-    const response = await axios.post('http://localhost:5002/api/auth/login', {
-      username,
-      password
-    })
-    const { token, user } = response.data
-    localStorage.setItem('token', token)
-    setUser(user)
-    return user
-  }
+const login = async (username, password) => {
+  const response = await axios.post(
+    'https://craftbet.onrender.com/api/auth/login',
+    { username, password }
+  )
 
-  const register = async (username, email, password) => {
-    const response = await axios.post('http://localhost:5002/api/auth/register', {
-      username,
-      email,
-      password
-    })
-    const { token, user } = response.data
-    localStorage.setItem('token', token)
-    setUser(user)
-    return user
-  }
+  const token = response.data.token
+  const user = response.data.user
+
+  if (!token) throw new Error("No token returned")
+
+  localStorage.setItem('token', token)
+  setUser(user)
+
+  return user
+}
+
+const register = async (username, email, password) => {
+  const response = await axios.post(
+    'https://craftbet.onrender.com/api/auth/register',
+    { username, email, password }
+  )
+
+  const token = response.data.token
+  const user = response.data.user
+
+  if (!token) throw new Error("No token returned")
+
+  localStorage.setItem('token', token)
+  setUser(user)
+
+  return user
+}
 
   const logout = () => {
     localStorage.removeItem('token')

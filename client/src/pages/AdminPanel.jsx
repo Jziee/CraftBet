@@ -10,7 +10,7 @@ const AdminPanel = () => {
   const [error, setError] = useState('')
   const [users, setUsers] = useState([])
 
-  const API_URL = 'http://localhost:5002'
+  const API_URL = 'https://craftbet.onrender.com'
 
   useEffect(() => {
     fetchUsers()
